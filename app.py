@@ -261,5 +261,7 @@ def update_dashboard(year, rain, variety, slider_year, layer, _, relayout):
     return fig, years_opts, rains_opts, vars_opts, summary, chart
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 8050))
+    app.run(host="0.0.0.0", port=port, debug=False)
