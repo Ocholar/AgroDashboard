@@ -1,0 +1,7 @@
+# requirements.txt
+dash
+pandas
+plotly
+scikit-learn
+gdown
+gunicorn
