@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import os
 import requests
 import dash
@@ -226,7 +225,7 @@ def update_dashboard(sel_country, sel_season, sel_variety, sel_rain):
 
 if __name__ == "__main__":
     app.run(debug=True)
-=======
+
 import os
 import requests
 import dash
@@ -470,4 +469,3 @@ def update_dashboard(selected_country, selected_season, selected_variety, select
 
 if __name__ == "__main__":
     app.run(debug=True)
->>>>>>> 5ad3bb6 (Download dataset at startup from Dropbox)
