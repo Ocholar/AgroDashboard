@@ -17,7 +17,7 @@ df["RainType"] = (
     .replace({"short rains": "Short rains", "long rains": "Long rains"})
 )
 
-# Normalize Variety and assign display names
+# Normalize Variety and create display name
 df["Variety_normalized"] = (
     df["Variety"]
     .str.lower()
@@ -26,7 +26,7 @@ df["Variety_normalized"] = (
 rep_names = df.groupby("Variety_normalized")["Variety"].first().to_dict()
 df["Variety_display"] = df["Variety_normalized"].map(rep_names)
 
-# Prepare coordinates with jitter
+# Jitter coordinates
 df["model_lat"] = pd.to_numeric(df["model_lat"], errors="coerce")
 df["model_lon"] = pd.to_numeric(df["model_lon"], errors="coerce")
 jitter = 0.0002
@@ -138,27 +138,20 @@ def update_dashboard(selected_country, selected_season, selected_variety, select
     lon_min, lon_max = dff["model_lon"].min(), dff["model_lon"].max()
     center = {"lat": (lat_min + lat_max) / 2, "lon": (lon_min + lon_max) / 2}
     span = max(lat_max - lat_min, lon_max - lon_min)
-    if span > 10:
-        zoom_level = 4
-    elif span > 5:
-        zoom_level = 5
-    elif span > 1:
-        zoom_level = 6
-    else:
-        zoom_level = 8
+    zoom_level = 4 if span > 10 else 5 if span > 5 else 6 if span > 1 else 8
 
-    # Map figure
+    # Map figure with trimmed hover fields
     map_fig = px.scatter_mapbox(
         dff,
         lat="model_lat", lon="model_lon",
         color="YieldPerAcre",
-        size="AvgSampleYield_per_m2",
+        size="PlotSize_acres",
         hover_data={
-            "Variety": True,
-            "RainType": True,
-            season_col: True,
+            "EstimatedYieldKG": True,
+            "PlotSize_acres": True,
             "YieldPerAcre": True,
-            "ImgID": True,
+            "Variety": True,
+            "Standardized_Season": True,
             "model_lat": False,
             "model_lon": False
         },
@@ -166,7 +159,7 @@ def update_dashboard(selected_country, selected_season, selected_variety, select
         zoom=zoom_level,
         mapbox_style="open-street-map",
         color_continuous_scale="Viridis",
-        range_color=[600, 1100],
+        range_color=[600, 3000],
         title="Yield Distribution"
     )
     map_fig.update_traces(marker=dict(opacity=0.8, sizemin=4))
