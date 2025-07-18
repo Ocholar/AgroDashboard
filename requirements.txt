@@ -1,7 +1,6 @@
-# requirements.txt
 dash
+dash-leaflet
 pandas
 plotly
 scikit-learn
-gdown
 gunicorn
