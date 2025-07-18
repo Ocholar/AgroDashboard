@@ -1,8 +1,33 @@
+import os
+import requests
 import dash
 from dash import dcc, html, Input, Output
 import plotly.express as px
 import pandas as pd
 import numpy as np
+
+# ────────────────────────────────────────────────────────
+# Download dataset from Dropbox if it's missing on the dyno
+DATA_FILE = "merged_yield_data.csv"
+DROPBOX_URL = (
+    "https://www.dropbox.com/scl/fi/"
+    "i4nbcm1664irwbmjinqgi/merged_yield_data.csv?dl=1"
+)
+
+if not os.path.isfile(DATA_FILE):
+    print(f"Downloading {DATA_FILE} from Dropbox…")
+    r = requests.get(DROPBOX_URL, stream=True)
+    r.raise_for_status()
+    with open(DATA_FILE, "wb") as f:
+        for chunk in r.iter_content(chunk_size=8192):
+            f.write(chunk)
+    print("Download complete.")
+
+# Load full dataset
+df = pd.read_csv(DATA_FILE)
+
+# … rest of your existing code follows unchanged …
+
 
 # Load full dataset
 df = pd.read_csv("merged_yield_data.csv")
