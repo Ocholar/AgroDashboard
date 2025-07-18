@@ -2,13 +2,15 @@ AgroDashboard
 
 An interactive agronomic dashboard built with Plotly Dash to explore maize yield data across East Africa. Apply spatial, temporal, and categorical filters, view normalized variety performance, and surface key insights through maps, bar charts, and summary panels.
 
-
+---
 
 Demo
 
-Live demo: coming soon 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-ngrok-blue?logo=plotly)](https://f6f663660096.ngrok-free.app/)
 
+⚠️ This is a temporary demo link powered by ngrok. It may expire or change. A permanent Heroku deployment is coming soon.
 
+---
 
 Features
 
@@ -26,7 +28,7 @@ Jittered coordinates for clarity
 
 Color-coded by YieldPerAcre, sized by AvgSampleYield\_per\_m2
 
-
+---
 
 🗺️ Filters
 
@@ -46,7 +48,7 @@ Variety (raw and normalized grouping)
 
 Rain Type (Short rains / Long rains)
 
-
+---
 
 🔍 Hover Pop-Out
 
@@ -70,7 +72,7 @@ Variety
 
 Standardized\_Season
 
-
+---
 
 📊 Bar Chart
 
@@ -86,7 +88,7 @@ Dynamic height scaling based on number of varieties
 
 Merges variants like DK8031, DK\_8031, DK 8031
 
-
+---
 
 📋 Summary Panels
 
@@ -102,7 +104,7 @@ Country-level average yields
 
 Yield by rain type
 
-
+---
 
 ⚙️ Data Processing
 
