@@ -1,6 +1,0 @@
-dash
-dash-leaflet
-pandas
-plotly
-scikit-learn
-gunicorn
