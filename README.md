@@ -12,6 +12,12 @@ Demo
 
 ---
 
+### 📊 Dashboard Preview
+![Dashboard Preview](dashboard_preview1.png)
+![Dashboard Preview](dashboard_preview2.png)
+
+---
+
 Features
 
 📍 Interactive Map
