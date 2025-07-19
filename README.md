@@ -154,3 +154,7 @@ Imputes minimal sample yield for plotting
 - Share insights with a broader audience through interactive visualization
 
 ---
+
+📄 **License**: [MIT License](LICENSE)
+
+--=
