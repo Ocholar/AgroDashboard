@@ -17,11 +17,9 @@ An interactive agronomic dashboard built with Plotly Dash to explore maize yield
 ---
 
 ### 🎞️ Dashboard Demo
-![AgroDashboard Demo](dashboard_demo.gif)
-
 [![Live Demo](https://img.shields.io/badge/Live_Demo-ngrok-blue?logo=plotly)](https://f6f663660096.ngrok-free.app/)
 
-⚠️ This is a temporary demo link powered by ngrok. It may expire or change. A permanent Heroku deployment is coming soon.
+![AgroDashboard Demo](dashboard_demo.gif)
 
 ---
 
